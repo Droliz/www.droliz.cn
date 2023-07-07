@@ -1,0 +1,37 @@
+@import "./base.css";
+
+/* app样式 */
+#app {
+  min-height: 100vh;
+  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+  line-height: 1.8; /* 更改默认的行距 */
+  letter-spacing: 2px; /* 更改默认的字符间距 */
+  word-spacing: 2px; /* 更改默认的词间距 */
+  scroll-behavior: smooth; /* 平滑滚动 */
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: var(--font-gray);
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hover-bg-1);
+}
+
+/* 隐藏 */
+[hidden] {
+  display: none !important;
+}

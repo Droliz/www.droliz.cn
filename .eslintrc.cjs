@@ -7,6 +7,7 @@ module.exports = {
     // "vue/setup-compiler-macros": "true"
   },
   extends: [
+    "./.eslintrc-auto-import.json",
     'eslint:recommended',
     'plugin:vue/vue3-essential',
     'plugin:@typescript-eslint/recommended',
@@ -34,5 +35,6 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 1, // 禁止未使用的变量
     '@typescript-eslint/no-empty-function': 1, // 禁止空函数
     'no-param-reassign': 0, // 允许修改函数参数
+    "vue/multi-word-component-names": 0, // 允许多个单词的组件名
   },
 }

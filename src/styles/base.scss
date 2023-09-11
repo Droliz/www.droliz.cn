@@ -1,0 +1,39 @@
+// 颜色相关
+$bg-color: #272727;
+$default-color: #ffffff;
+$text-color-default: #d1d1d1;
+$text-color-active: #ffffff;
+$border-color-default: #4d4d4d;
+$bg-head-color: #3a3636;
+$text-color-title: #fbfbfb;
+$bg-card-color: #323443;
+$text-color-1: #fafaf9;
+$text-color-2: #cccccc;
+$text-color-3: #c9c9c9;
+$text-color-s-1: #4ca9ff;
+$text-color-s-2: #62d9ff;
+$text-color-s-3: #80ffa3;
+$text-color-s-4: #3bf686;
+
+// 大小相关
+$header-height: 80px;
+$header-box-height: 64px;
+$header-box-margin: 64px;
+$main-width: 80%;
+$height-head-portrait: 135px;
+
+// 字体
+$font-size-default: 16px;
+$font-size-large: 24px;
+$font-size-small: 12px;
+$line-height-default: 80.5px;
+
+// 不同设备的宽度
+$mobile-width: 768px;
+$desktop-width: 1200px;
+
+// 函数返回渐变，参数表示方向
+@function gradient-color($direction, $n) {
+  // 颜色只有 rgb(59 246 134), rgb(76 169 255)
+  @return linear-gradient(to #{$direction}, rgb(59 246 134), rgb(76 169 255) #{$n});
+}

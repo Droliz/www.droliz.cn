@@ -5,9 +5,26 @@
   min-height: 100vh;
   font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
   line-height: 1.8; /* 更改默认的行距 */
-  letter-spacing: 2px; /* 更改默认的字符间距 */
-  word-spacing: 2px; /* 更改默认的词间距 */
+  letter-spacing: 1.5px; /* 更改默认的字符间距 */
+  background-color: #272727;
+  word-spacing: 1px; /* 更改默认的词间距 */
   scroll-behavior: smooth; /* 平滑滚动 */
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* 去除a标签的样式 */
+a {
+  text-decoration: none !important;
+}
+
+/* 去除input样式 */
+input {
+  border: none;
+  outline: none;
 }
 
 /* width */

@@ -14,9 +14,17 @@ import path from "path"
 
 const pathSrc = path.resolve(__dirname, "./src")
 const env = loadEnv("", process.cwd())
+console.log(env)
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/styles/base.scss";`, // 全局基础样式
+      },
+    },
+  },
   resolve: {
     alias: {
       "@": pathSrc,
@@ -64,6 +72,6 @@ export default defineConfig({
     }),
   ],
   server: {
-    port: Number(env.VITE_APP_PORT),
+    port: Number(env.VITE_APP_PORT) || 3000,
   },
 })

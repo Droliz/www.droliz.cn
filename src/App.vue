@@ -4,4 +4,8 @@
   <router-view />
 </template>
 
-<style scoped></style>
+<style lang="scss">
+* {
+  color: $default-color;
+}
+</style>

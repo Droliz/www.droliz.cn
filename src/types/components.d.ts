@@ -5,16 +5,17 @@
 // Read more: https://github.com/vuejs/core/pull/3399
 export {}
 
-declare module "vue" {
+declare module 'vue' {
   export interface GlobalComponents {
-    ElButton: typeof import("element-plus/es")["ElButton"]
-    IEpInfoFilled: typeof import("~icons/ep/info-filled")["default"]
-    IEpSuccessFilled: typeof import("~icons/ep/success-filled")["default"]
-    IEpWarningFilled: typeof import("~icons/ep/warning-filled")["default"]
-    IEpWarnTriangleFilled: typeof import("~icons/ep/warn-triangle-filled")["default"]
-    IndexCpt: typeof import("./../components/SvgIcon/IndexCpt.vue")["default"]
-    RouterLink: typeof import("vue-router")["RouterLink"]
-    RouterView: typeof import("vue-router")["RouterView"]
-    SvgIcon: typeof import("./../components/SvgIcon/index.vue")["default"]
+    CodeItem: typeof import('./../components/CodeItem.vue')['default']
+    ElFooter: typeof import('element-plus/es')['ElFooter']
+    ElHeader: typeof import('element-plus/es')['ElHeader']
+    ElMain: typeof import('element-plus/es')['ElMain']
+    Footer: typeof import('./../components/Footer.vue')['default']
+    Header: typeof import('./../components/Header.vue')['default']
+    ProItem: typeof import('./../components/ProItem.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
+    SvgIcon: typeof import('./../components/SvgIcon/index.vue')['default']
   }
 }

@@ -1,0 +1,65 @@
+<template>
+  <div class="main">
+    <!-- 头部 -->
+    <el-header> <Header></Header> </el-header>
+    <!-- 内容 -->
+    <el-main>
+      <router-view />
+    </el-main>
+    <!-- 底部 -->
+    <el-footer> <Footer></Footer> </el-footer>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { useUserStore } from "@/stores/user"
+
+const store: any = useUserStore()
+
+console.log(store.user)
+// 设置用户信息
+store.setUser({ name: "张三", age: 18 })
+console.log(store.user)
+</script>
+
+<style scope lang="scss">
+.main {
+  display: flex;
+  flex-direction: column;
+  width: $main-width;
+  margin: 0 auto;
+}
+.el-header {
+  height: $header-height;
+}
+.el-main {
+  position: relative;
+  z-index: 0;
+}
+.el-footer {
+  // 高度按照内容撑开
+  height: auto;
+}
+
+// pc端
+@media screen and (width >= 1200px) {
+  .main {
+    width: 80%;
+  }
+}
+
+// tablet端
+@media screen and (width >= 768px) and (width < 1200px) {
+  .main {
+    width: 90%;
+  }
+}
+
+// 移动端
+@media screen and (width < 768px) {
+  .main {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+</style>

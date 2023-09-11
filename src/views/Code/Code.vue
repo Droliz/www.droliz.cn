@@ -9,19 +9,32 @@
       </div>
     </div>
     <div class="code-list">
-      <CodeItem
-        v-for="item in 4"
-        :key="item"
-        name="项目名称"
-        info="项目介绍"
-        :lang="['vue', 'vite', 'ts']"
-        :star="100"
-      />
+      <template v-for="item in raw" :key="item.path">
+        <CodeItem
+          v-if="item.info.flag"
+          :name="item.info.name"
+          :info="item.info.desc"
+          :lang="item.info.stack"
+          :star="100"
+        />
+      </template>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { getData } from "@/api"
+import type { codeDataRaw } from "@/types/request"
+import { useCodeStore } from "@/stores/code"
+
+const { data } = await getData()
+let raw: Ref<codeDataRaw[]> = ref<codeDataRaw[]>(data.raw)
+
+// 设置到 state 中
+const codeStore = useCodeStore()
+codeStore.setCodeList(data)
+console.log(codeStore.codeList)
+</script>
 
 <style scope lang="scss">
 .code {

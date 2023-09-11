@@ -18,10 +18,10 @@ const props = defineProps({
   },
   info: {
     type: String,
-    required: true,
+    required: false,
   },
   lang: {
-    type: Array,
+    type: Array<string>,
     required: true,
   },
   star: {
@@ -38,7 +38,10 @@ const { proxy } = getCurrentInstance() as ComponentInternalInstance
 
 onMounted(() => {
   // gsap 动画
-  proxy?.$gsap.to(".code-item", {
+  proxy?.$gsap.fromTo(".code-item",{
+    x: -100,
+    opacity: 0,
+  }, {
     x: 0,
     opacity: 1,
     scrollTrigger: {
@@ -61,9 +64,7 @@ onMounted(() => {
   cursor: pointer;
   background-color: $bg-card-color;
   border-radius: 20px;
-  opacity: 0;
   transition: transform 0.3s ease-in-out;
-  transform: translateX(-100px);
   will-change: transform, opacity;
   .name {
     font-size: $font-size-large;
@@ -81,9 +82,10 @@ onMounted(() => {
     flex-direction: row;
     justify-content: space-between;
   }
-}
-.code-item:hover {
-  transform: scale(1.02);
+  &:hover {
+    // 放大 避免被覆盖
+    transform: scale(1.05) !important;
+  }
 }
 
 @media screen and (width < 768px) {

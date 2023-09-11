@@ -1,5 +1,5 @@
 <template>
-  <div class="project">
+  <div class="project-page">
     <div class="title">Project that i have been <span class="strong-1">done</span></div>
     <div class="pro-list">
       <pro-item
@@ -21,7 +21,7 @@
 <script setup lang="ts"></script>
 
 <style scope lang="scss">
-.project {
+.project-page {
   display: flex;
   flex-direction: column;
   gap: 50px;

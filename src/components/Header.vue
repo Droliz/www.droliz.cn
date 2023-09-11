@@ -50,6 +50,11 @@ const changeMenu = () => {
   .logo {
     font-size: $font-size-large;
     color: $default-color;
+    a {
+      background-image: gradient-color($direction: left top, $n: 70%);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
   .select {
     position: absolute;

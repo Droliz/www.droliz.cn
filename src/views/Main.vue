@@ -4,7 +4,9 @@
     <el-header> <Header></Header> </el-header>
     <!-- 内容 -->
     <el-main>
-      <router-view />
+      <Suspense>
+        <router-view />
+      </Suspense>
     </el-main>
     <!-- 底部 -->
     <el-footer> <Footer></Footer> </el-footer>
@@ -14,12 +16,11 @@
 <script setup lang="ts">
 import { useUserStore } from "@/stores/user"
 
-const store: any = useUserStore()
+const store = useUserStore()
+console.log("🚀 ~ file: Main.vue:18 ~ store:", store)
 
-console.log(store.user)
 // 设置用户信息
 store.setUser({ name: "张三", age: 18 })
-console.log(store.user)
 </script>
 
 <style scope lang="scss">

@@ -101,7 +101,7 @@
           :stack="['vue', 'vite', 'ts']"
         ></pro-item>
       </div>
-      <div class="more">
+      <div class="more" @click="projectPage">
         <div class="more-icon">
           <img src="@/assets/icons/more.svg" alt="more" style="width: 16px; height: 16px" />
         </div>
@@ -120,7 +120,7 @@
           :key="i"
         ></code-item>
       </div>
-      <div class="more">
+      <div class="more" @click="codePage">
         <div class="more-icon">
           <img src="@/assets/icons/more.svg" alt="more" style="width: 16px; height: 16px" />
         </div>
@@ -132,6 +132,7 @@
 
 <script setup lang="ts">
 import { ComponentInternalInstance } from "vue"
+const router = useRouter()
 
 const { proxy } = getCurrentInstance() as ComponentInternalInstance
 
@@ -204,19 +205,27 @@ onMounted(() => {
       "doing-do",
     )
 
-  // 卡片
-  proxy?.$gsap.from(".doing .cards .card", {
-    opacity: 0,
-    scale: 0.2,
-    scrollTrigger: {
-      trigger: ".doing .cards .card",
-      start: "top bottom",
-      end: "bottom bottom",
-      scrub: true,
-      // markers: true,
-    },
-  })
+  // // 卡片
+  // proxy?.$gsap.from(".doing .cards .card", {
+  //   opacity: 0,
+  //   scale: 0.2,
+  //   scrollTrigger: {
+  //     trigger: ".doing .cards .card",
+  //     start: "top 80%",
+  //     end: "bottom 80%",
+  //     scrub: true,
+  //     // markers: true,
+  //   },
+  // })
 })
+
+const projectPage = () => {
+  router.push({ name: "Project" })
+}
+
+const codePage = () => {
+  router.push({ name: "Code" })
+}
 </script>
 
 <style scope lang="scss">
@@ -375,7 +384,9 @@ onMounted(() => {
         }
         &:hover {
           // 放大一点
-          transform: scale(1.1);
+          // transform: scale(1.1);
+          // 抖动
+          animation: df-shake 0.5s;
         }
       }
     }
@@ -450,6 +461,10 @@ onMounted(() => {
     }
     .more-text {
       color: $text-color-3;
+    }
+    &:hover {
+      // 抖动动画
+      animation: rotate-shake 0.5s;
     }
   }
   .title {

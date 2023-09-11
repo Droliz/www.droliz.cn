@@ -1,9 +1,9 @@
-import type { User } from "@/types/user"
+import type { User } from "@/types/store/user"
 import { defineStore } from "pinia"
 
 // 命名方式：use + StoreName + Store
 export const useUserStore = defineStore(
-  "user",
+  "userId",
   () => {
     const user = ref<User>()
 
@@ -19,7 +19,7 @@ export const useUserStore = defineStore(
   {
     persist: {
       key: "user",
-      storage: window.sessionStorage,
+      storage: window.localStorage,
     },
   },
 )

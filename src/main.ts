@@ -10,6 +10,8 @@ import piniaPluginPersistedstate from "pinia-plugin-persistedstate"
 // router
 import router from "@/router"
 import { globalRegister } from "@/global"
+// mock拦截
+import "@/api/mock"
 
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)

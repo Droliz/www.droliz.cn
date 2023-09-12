@@ -19,9 +19,11 @@ pinia.use(piniaPluginPersistedstate)
 const app = createApp(App)
 
 // 挂载 $gsap
-// app.provide(GSAP_SYMBOL, gsap)
-// app.config.globalProperties.$gsap = gsap
 app.use(globalRegister)
 app.use(router)
 app.use(pinia)
 app.mount("#app")
+
+// 初始化store
+import { initCodeDataList } from "@/utils/initStore"
+initCodeDataList()

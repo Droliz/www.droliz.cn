@@ -29,16 +29,11 @@
 </template>
 
 <script setup lang="ts">
-import { getData } from "@/api"
-import type { codeDataRaw } from "@/types/request"
+// import { getData } from "@/api"
 import { useCodeStore } from "@/stores/code"
 
-const { data } = await getData()
-let raw: Ref<codeDataRaw[]> = ref<codeDataRaw[]>(data.raw)
-
-// 设置到 state 中
 const codeStore = useCodeStore()
-codeStore.setCodeList(data)
+let raw = codeStore.states.codeList.raw
 
 const isShowCodeView = ref(false)
 const codeViewProps = ref({

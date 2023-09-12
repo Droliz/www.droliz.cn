@@ -112,12 +112,12 @@
       <div class="title"> Code Snippet </div>
       <div class="code-list">
         <code-item
-          v-for="i in 4"
-          name="项目名称"
-          info="项目介绍"
-          :lang="['vue', 'vite', 'ts']"
+          v-for="i in codes"
+          :name="i.info.name"
+          :info="i.info.desc"
+          :lang="i.info.stack"
           :star="100"
-          :key="i"
+          :key="i.path"
         ></code-item>
       </div>
       <div class="more" @click="codePage">
@@ -132,10 +132,21 @@
 
 <script setup lang="ts">
 import { ComponentInternalInstance } from "vue"
+import { useCodeStore } from "@/stores/code"
+import { codeDataRaw } from "@/types/store/code"
 const router = useRouter()
+const codeStore = useCodeStore()
+let codes: Ref<codeDataRaw[]>
+
+// 初始化页面数据
+const init = () => {
+  // 初始化 codeCard
+  codes = ref(codeStore.getters.Get_4())
+  console.log("🚀 ~ file: Home.vue:145 ~ init ~ codes:", codes)
+}
+init()
 
 const { proxy } = getCurrentInstance() as ComponentInternalInstance
-
 onMounted(() => {
   // 时间线
   const tl = proxy?.$gsap.timeline()

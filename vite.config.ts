@@ -72,6 +72,6 @@ export default defineConfig({
     }),
   ],
   server: {
-    port: Number(env.VITE_APP_PORT) || 3000,
+    port: Number(env.VITE_APP_PORT) || 6000,
   },
 })

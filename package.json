@@ -44,7 +44,8 @@
     "lint:style": "stylelint --fix \"src/**/*.{css,scss,vue}\"",
     "lint:check": "lint-staged",
     "prepare": "husky install",
-    "commit": "git add . && git-cz",
+    "commit:git-cz": "git add . && git-cz",
+    "commit:cust": "git add . && cz-customizable",
     "push": "git push"
   },
   "dependencies": {

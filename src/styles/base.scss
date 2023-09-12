@@ -15,6 +15,20 @@ $text-color-s-2: #62d9ff;
 $text-color-s-3: #80ffa3;
 $text-color-s-4: #3bf686;
 
+// 编辑器颜色
+$color-canvas-default: #0d1117;
+$color-canvas-overlay: #161b22;
+$color-border-default: rgb(48 54 61);
+$color-fg-muted: #8b949e;
+$color-fg-subtle: #6e7681;
+$color-fg-default: #c9d1d9;
+$color-done-fg: #a371f7;
+$color-accent-fg: #58a6ff;
+$color-prettylights-syntax-entity-tag: #7ee787; /* 代码块高亮 */
+$color-prettylights-syntax-entity: #d2a8ff;
+$color-prettylights-syntax-string: #a5d6ff;
+$color-prettylights-syntax-keyword: #ff7b72;
+
 // 大小相关
 $header-height: 80px;
 $header-box-height: 64px;

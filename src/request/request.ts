@@ -1,11 +1,6 @@
 // index.ts
 import axios from "axios"
-import type {
-  AxiosInstance,
-  InternalAxiosRequestConfig,
-  AxiosRequestConfig,
-  AxiosResponse,
-} from "axios"
+import type { AxiosInstance, AxiosError, AxiosRequestConfig, AxiosResponse } from "axios"
 
 import type { statusCode, Result } from "@/types/request"
 
@@ -38,7 +33,7 @@ export class Request {
     this.instance = axios.create(Object.assign(this.baseConfig, config))
 
     this.instance.interceptors.request.use(
-      (config: InternalAxiosRequestConfig<any>) => {
+      (config: AxiosRequestConfig) => {
         // 一般会请求拦截里面加token，用于后端的验证
         const token = localStorage.getItem("token") as string
         if (token) {
@@ -47,7 +42,7 @@ export class Request {
 
         return config
       },
-      (err: any) => {
+      (err: AxiosError) => {
         // 请求错误，这里可以用全局提示框进行提示
         return Promise.reject(err)
       },
@@ -59,10 +54,11 @@ export class Request {
         // 系统如果有自定义code也可以在这里处理
         return res
       },
-      (err: any) => {
+      err => {
         // 这里用来处理http常见错误，进行全局提示
         let message = ""
         message = statusCode[err.response.status] || "请求出错，请询问管理员"
+        console.log("🚀 ~ file: request.ts:66 ~ Request ~ constructor ~ message:", message)
         // 这里错误消息可以使用全局弹框展示出来
         // 比如element plus 可以使用 ElMessage
         // ElMessage({

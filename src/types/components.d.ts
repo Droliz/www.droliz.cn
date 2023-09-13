@@ -15,6 +15,7 @@ declare module 'vue' {
     Footer: typeof import('./../components/Footer.vue')['default']
     Header: typeof import('./../components/Header.vue')['default']
     ProItem: typeof import('./../components/ProItem.vue')['default']
+    ProView: typeof import('./../components/proView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SvgIcon: typeof import('./../components/SvgIcon/index.vue')['default']

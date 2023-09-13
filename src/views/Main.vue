@@ -38,6 +38,8 @@ store.setUser({ name: "张三", age: 18 })
   z-index: 0;
 }
 .el-footer {
+  z-index: 10;
+
   // 高度按照内容撑开
   height: auto;
 }

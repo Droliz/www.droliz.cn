@@ -69,6 +69,7 @@
         </div>
         <div class="right">
           <svg
+            @click="go_back"
             aria-hidden="true"
             height="24"
             viewBox="0 0 24 24"
@@ -103,7 +104,14 @@ const props = defineProps({
   },
 })
 
+const router = useRouter()
+
 const { url, name } = toRefs(props)
+
+const go_back = () => {
+  // 到 code 不带参数
+  router.push({ path: "/code" })
+}
 </script>
 
 <style scope lang="scss">
@@ -151,6 +159,17 @@ const { url, name } = toRefs(props)
       .content {
         padding-right: 64px;
         padding-left: 64px;
+      }
+    }
+    .right {
+      svg {
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+        transform: rotate(45deg);
+        will-change: transform;
+        &:hover {
+          transform: rotate(45deg) scale(1.5);
+        }
       }
     }
     .color-fg-muted {

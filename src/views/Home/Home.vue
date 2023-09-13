@@ -118,6 +118,7 @@
           :lang="i.info.stack"
           :star="100"
           :key="i.path"
+          @click="codePageView(i.path, i.info.name)"
         ></code-item>
       </div>
       <div class="more" @click="codePage">
@@ -236,6 +237,10 @@ const projectPage = () => {
 
 const codePage = () => {
   router.push({ name: "Code" })
+}
+
+const codePageView = (path: string, name: string) => {
+  router.push({ name: "Code", query: { path, name } })
 }
 </script>
 

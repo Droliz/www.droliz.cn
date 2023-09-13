@@ -16,7 +16,7 @@
           :info="item.info.desc"
           :lang="item.info.stack"
           :star="100"
-          @click="showCodeView(item.path, item.info.name)"
+          @click="router.push({ query: { path: item.path, name: item.info.name } })"
         />
       </template>
     </div>
@@ -29,9 +29,12 @@
 </template>
 
 <script setup lang="ts">
-// import { getData } from "@/api"
 import { useCodeStore } from "@/stores/code"
 
+const router = useRouter()
+// 获取当前的路由信息
+const route = useRoute()
+console.log("🚀 ~ file: Code.vue:35 ~ router:", router)
 const codeStore = useCodeStore()
 let raw = codeStore.states.codeList.raw
 
@@ -40,16 +43,35 @@ const codeViewProps = ref({
   url: "",
   name: "",
 })
+// 获取 query 参数
+const query = route.query
+console.log("🚀 ~ file: Code.vue:46 ~ query:", query)
+
+// 监听路由参数
+watch(
+  () => route.query,
+  query => {
+    console.log("🚀 ~ file: Code.vue:57 ~ query:", query)
+    if (query.path && query.name) {
+      // 显示代码
+      show_closeCodeView(query.path as string, query.name as string)
+    } else {
+      // 关闭代码
+      closeCodeView()
+    }
+  },
+)
 
 /**
- * 显示代码显示
- * @param path 路径
- * @param name 名字
- */
-const showCodeView = (path: string, name: string): void => {
+//  * 显示代码显示
+//  * @param path 路径
+//  * @param name 名字
+//  */
+function show_closeCodeView(path: string, name: string): void {
   isShowCodeView.value = true
   codeViewProps.value.url = path
   codeViewProps.value.name = name
+  // console.log(path, name)
 }
 
 /**
@@ -130,6 +152,7 @@ const closeCodeView = (): void => {
     top: 10px;
     right: 10px;
     z-index: 100;
+    display: none;
     padding: 10px 20px;
     cursor: pointer;
     background-color: $bg-card-color;

@@ -43,31 +43,40 @@ const codeViewProps = ref({
   url: "",
   name: "",
 })
-// 获取 query 参数
-const query = route.query
-console.log("🚀 ~ file: Code.vue:46 ~ query:", query)
 
-// 监听路由参数
-watch(
-  () => route.query,
-  query => {
-    console.log("🚀 ~ file: Code.vue:57 ~ query:", query)
-    if (query.path && query.name) {
-      // 显示代码
-      show_closeCodeView(query.path as string, query.name as string)
-    } else {
-      // 关闭代码
-      closeCodeView()
-    }
-  },
-)
+onMounted(() => {
+  // 获取 query 参数
+  const query = route.query
+  if (query.path && query.name) {
+    // 显示代码
+    showCodeView(query.path as string, query.name as string)
+  } else {
+    // 关闭代码
+    closeCodeView()
+  }
+}),
+  // 监听路由参数
+  watch(
+    () => route.query,
+    query => {
+      console.log("🚀 ~ file: Code.vue:57 ~ query:", query)
+      if (query.path && query.name) {
+        // 显示代码
+        showCodeView(query.path as string, query.name as string)
+      } else {
+        // 关闭代码
+        closeCodeView()
+      }
+    },
+    // { immediate: true },
+  )
 
 /**
 //  * 显示代码显示
 //  * @param path 路径
 //  * @param name 名字
 //  */
-function show_closeCodeView(path: string, name: string): void {
+function showCodeView(path: string, name: string): void {
   isShowCodeView.value = true
   codeViewProps.value.url = path
   codeViewProps.value.name = name
@@ -135,7 +144,7 @@ const closeCodeView = (): void => {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 999999;
   width: 100%;
   height: 100%;
   padding: 20px;

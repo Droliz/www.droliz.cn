@@ -32,13 +32,14 @@
 
 <style scope lang="scss">
 .footer {
+  position: relative;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: center;
   justify-content: center;
   height: auto;
-  padding-top: 80px;
   padding-bottom: 50px;
   margin-top: 20px;
   color: $text-color-default;

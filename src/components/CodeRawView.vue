@@ -53,6 +53,7 @@
             {{ name }}
           </div>
           <svg
+            @click="reloading"
             aria-hidden="true"
             height="16"
             viewBox="0 0 16 16"
@@ -86,7 +87,7 @@
         </div>
       </div>
       <div class="editor-body">
-        <iframe :src="url" frameborder="0"></iframe>
+        <iframe ref="iframe" :src="url" frameborder="0"></iframe>
       </div>
     </div>
   </div>
@@ -105,8 +106,14 @@ const props = defineProps({
 })
 
 const router = useRouter()
+const iframe = ref()
 
 const { url, name } = toRefs(props)
+
+// 重新加载 iframe
+const reloading = () => {
+  iframe.value.src = url.value
+}
 
 const go_back = () => {
   // 到 code 不带参数

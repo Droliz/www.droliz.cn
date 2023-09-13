@@ -8,4 +8,8 @@
 * {
   color: $default-color;
 }
+#app {
+  position: relative;
+  z-index: 1;
+}
 </style>

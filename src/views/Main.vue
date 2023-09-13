@@ -17,7 +17,6 @@
 import { useUserStore } from "@/stores/user"
 
 const store = useUserStore()
-console.log("🚀 ~ file: Main.vue:18 ~ store:", store)
 
 // 设置用户信息
 store.setUser({ name: "张三", age: 18 })
@@ -35,10 +34,10 @@ store.setUser({ name: "张三", age: 18 })
 }
 .el-main {
   position: relative;
-  z-index: 0;
+  z-index: 1;
 }
 .el-footer {
-  z-index: -1;
+  z-index: 0;
 
   // 高度按照内容撑开
   height: auto;

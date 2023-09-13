@@ -41,8 +41,8 @@ export const useCodeStore = defineStore(
   },
   {
     persist: {
-      key: "codeList",
-      storage: window.sessionStorage,
+      key: "code",
+      storage: localStorage,
     },
   },
 )

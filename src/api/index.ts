@@ -1,8 +1,11 @@
 // 请求
 import instance from "@/request"
+import type { codeDataRes, projectDataRes } from "@/types/request"
 
-const getData = () => {
+export const getCodeData = (): codeDataRes => {
   return instance.get("/code/getData")
 }
 
-export { getData }
+export const getProjectData = (): projectDataRes => {
+  return instance.get("/project/getData")
+}

@@ -3,22 +3,23 @@
     <div class="title">Project that i have been <span class="strong-1">done</span></div>
     <div class="pro-list">
       <pro-item
-        preview="/img/project-1.png"
-        con="Serrow restructured and designed core pages, creating interactive elements that put users in control and allowed them to discover the information needed to make a decision."
-        name="项目名称"
-        :stack="['vue', 'vite', 'ts']"
-      ></pro-item>
-      <pro-item
-        preview="/img/project-2.png"
-        con="Serrow restructured and designed core pages, creating interactive elements that put users in control and allowed them to discover the information needed to make a decision."
-        name="项目名称"
-        :stack="['vue', 'vite', 'ts']"
+        v-for="item in projectList"
+        :key="item.url"
+        :url="item.url"
+        :preview="item.imgUrl"
+        :con="item.con"
+        :name="item.name"
+        :stack="item.stack"
       ></pro-item>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useProjectStore } from "@/stores/project"
+const projectStore = useProjectStore()
+const projectList = projectStore.states.projectList
+</script>
 
 <style scope lang="scss">
 .project-page {

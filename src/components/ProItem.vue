@@ -1,6 +1,6 @@
 <template>
   <div class="pro-item">
-    <div class="preview">
+    <div class="preview" @click="newWindow">
       <div class="share">
         <img src="@/assets/icons/Share.svg" alt="share" style="width: 16px; height: 16px" />
       </div>
@@ -22,6 +22,10 @@ import { ComponentInternalInstance } from "vue"
 
 // props 需要传入四个数据，预览图片url，项目名称，项目技术栈，项目简介
 const props = defineProps({
+  url: {
+    type: String,
+    required: true,
+  },
   preview: {
     type: String,
     required: true,
@@ -73,6 +77,11 @@ onMounted(() => {
     },
   )
 })
+
+// newWindow 打开项目窗口
+const newWindow = () => {
+  window.open(props.url)
+}
 </script>
 
 <style scope lang="scss">

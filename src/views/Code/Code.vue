@@ -34,7 +34,6 @@ import { useCodeStore } from "@/stores/code"
 const router = useRouter()
 // 获取当前的路由信息
 const route = useRoute()
-console.log("🚀 ~ file: Code.vue:35 ~ router:", router)
 const codeStore = useCodeStore()
 let raw = codeStore.states.codeList.raw
 

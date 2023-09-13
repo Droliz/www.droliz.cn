@@ -19,7 +19,7 @@ export const useUserStore = defineStore(
   {
     persist: {
       key: "user",
-      storage: window.localStorage,
+      storage: localStorage,
     },
   },
 )

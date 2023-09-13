@@ -1,4 +1,4 @@
-import { CodeData } from "@/types/request"
+import { CodeData } from "@/types/store/code"
 
 const codeData: CodeData = {
   raw: [

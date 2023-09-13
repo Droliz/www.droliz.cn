@@ -1,16 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router"
 
 // 自动读取`views`文件夹下的`.vue`文件，生成路由配置
-const modules = import.meta.glob("../views/**/*.vue")
-const routes_1 = Object.keys(modules).map(path => {
-  const name = path.match(/\.\/views(.*)\.vue$/)?.[1]
-  return {
-    path: name?.replace(/\/index$/, "") || "/",
-    name: name?.replace(/\//g, "-").replace(/^-/, "") || "home",
-    component: modules[path],
-  }
-})
-console.log("🚀 ~ file: index.ts:13 ~ constroutes_1=Object.keys ~ routes_1:", routes_1)
+// const modules = import.meta.glob("../views/**/*.vue")
+// const routes_1 = Object.keys(modules).map(path => {
+//   const name = path.match(/\.\/views(.*)\.vue$/)?.[1]
+//   return {
+//     path: name?.replace(/\/index$/, "") || "/",
+//     name: name?.replace(/\//g, "-").replace(/^-/, "") || "home",
+//     component: modules[path],
+//   }
+// })
 
 const routes = [
   {

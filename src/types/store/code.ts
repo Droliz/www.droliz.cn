@@ -1,5 +1,5 @@
 // codeDataRaw 数据结构
-interface codeDataRaw {
+export interface codeDataRaw {
   path: string
   info: {
     name: string
@@ -12,17 +12,17 @@ interface codeDataRaw {
 }
 
 // data-codeData请求返回的数据结构
-interface CodeData {
+export interface CodeData {
   raw: codeDataRaw[]
 }
 
 // state声明
-interface codeState {
+export interface codeState {
   codeList: Ref<CodeData>
 }
 
 // mutation 的函数声明
-interface codeMutation {
+export interface codeMutation {
   SetCodeList(c: CodeData): void
 }
 
@@ -30,16 +30,16 @@ interface codeMutation {
 // interface codeAction {}
 
 // getter 的函数声明
-interface codeGetter {
+export interface codeGetter {
   Get_4(): codeDataRaw[]
 }
 
 // codeStore 的返回结构
-interface codeStore {
+export interface codeStore {
   states: codeState
   mutations: codeMutation
   // actions: codeAction
   getters: codeGetter
 }
 
-export type { codeGetter, codeDataRaw, CodeData, codeStore, codeMutation, codeState }
+// export type { codeGetter, codeDataRaw, CodeData, codeStore, codeMutation, codeState }

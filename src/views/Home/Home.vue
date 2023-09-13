@@ -89,16 +89,13 @@
       <div class="title"> Featured Project </div>
       <div class="pro-list">
         <pro-item
-          preview="/img/project-1.png"
-          con="Serrow restructured and designed core pages, creating interactive elements that put users in control and allowed them to discover the information needed to make a decision."
-          name="项目名称"
-          :stack="['vue', 'vite', 'ts', 'scss']"
-        ></pro-item>
-        <pro-item
-          preview="/img/project-2.png"
-          con="Serrow restructured and designed core pages, creating interactive elements that put users in control and allowed them to discover the information needed to make a decision."
-          name="项目名称"
-          :stack="['vue', 'vite', 'ts']"
+          v-for="item in projects"
+          :key="item.url"
+          :url="item.url"
+          :preview="item.imgUrl"
+          :con="item.con"
+          :name="item.name"
+          :stack="item.stack"
         ></pro-item>
       </div>
       <div class="more" @click="projectPage">
@@ -134,16 +131,19 @@
 <script setup lang="ts">
 import { ComponentInternalInstance } from "vue"
 import { useCodeStore } from "@/stores/code"
+import { useProjectStore } from "@/stores/project"
 import { codeDataRaw } from "@/types/store/code"
+
 const router = useRouter()
 const codeStore = useCodeStore()
+const projectStore = useProjectStore()
 let codes: Ref<codeDataRaw[]>
+let projects = projectStore.states.projectList
 
 // 初始化页面数据
 const init = () => {
   // 初始化 codeCard
   codes = ref(codeStore.getters.Get_4())
-  console.log("🚀 ~ file: Home.vue:145 ~ init ~ codes:", codes)
 }
 init()
 
